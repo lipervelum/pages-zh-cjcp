@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷竞技 · 首页 — 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f4ef;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Times New Roman", Georgia, serif;
+      color: #2d2a26;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #fcfaf6;
+      padding: 2.8rem 2.2rem 3rem;
+      border-radius: 6px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+    }
+
+    /* 首页横幅 — 杂志大标题区 */
+    .hero {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #dcd5cb;
+      padding-bottom: 1.8rem;
+    }
+
+    .hero .overline {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8b7f72;
+      margin-bottom: 0.6rem;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #362f2a;
+      margin: 0.2rem 0 0.4rem;
+      line-height: 1.2;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #675e55;
+      font-style: italic;
+      border-left: 3px solid #b8a99b;
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* 正文区域 — 文章排版 */
+    .story p {
+      margin: 1.2rem 0;
+      text-indent: 2em;
+    }
+
+    .story p:first-of-type {
+      margin-top: 0;
+    }
+
+    .story p:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    /* 引用块 */
+    .inset-quote {
+      background: #ede7df;
+      border-left: 4px solid #a68f7b;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 2px 12px 12px 2px;
+      font-style: normal;
+      font-size: 1rem;
+      color: #3d352f;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .inset-quote p {
+      margin: 0.3rem 0;
+      text-indent: 0;
+    }
+
+    .inset-quote .attribution {
+      display: block;
+      text-align: right;
+      font-size: 0.85rem;
+      color: #75695e;
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* 提示框 */
+    .note-box {
+      background: #f1ede6;
+      border-radius: 10px;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0 1.2rem;
+      border: 1px solid #e0d7ce;
+      position: relative;
+    }
+
+    .note-box strong {
+      display: inline-block;
+      margin-bottom: 0.3rem;
+      color: #4f433a;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .note-box p {
+      margin: 0.4rem 0;
+      text-indent: 0;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #dad1c6;
+      text-align: center;
+    }
+
+    .footer-note p {
+      font-size: 0.95rem;
+      color: #625a51;
+      margin: 0.6rem 0;
+      text-indent: 0;
+    }
+
+    .footer-note .link-sentence {
+      font-size: 1.05rem;
+      background: #e6ded4;
+      display: inline-block;
+      padding: 0.4rem 1.8rem;
+      border-radius: 30px;
+      margin-top: 0.3rem;
+    }
+
+    a {
+      color: #7f6a58;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #3f2f24;
+      text-decoration-color: #b2927b;
+    }
+
+    /* 小屏优化 */
+    @media (max-width: 540px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page-wrap {
+        padding: 1.6rem 1.2rem 2rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .sub {
+        font-size: 0.9rem;
+      }
+      .inset-quote {
+        padding: 1rem 1.2rem;
+      }
+      .note-box {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- 首页横幅 -->
+    <div class="hero">
+      <div class="overline">专题 · 竞技站点</div>
+      <h1>不只是赛事，<br>雷竞技的日常质地</h1>
+      <div class="sub">从站点介绍与可信说明的角度展开</div>
+    </div>
+
+    <!-- 三段自然介绍 杂志文章感 -->
+    <div class="story">
+      <p>
+        第一次看到 beta-rayesports.com 这个域名，是在一个普通的星期二下午。朋友发来一条简短消息：「有个叫 <a href="https://beta-rayesports.com">雷竞技</a> 的站点，你可以看看。」当时我正在整理电脑里的书签夹，随手点进去，页面干净利落，没有铺天盖地的弹窗和催促注册的浮层。整个浏览过程很顺畅，它给我的第一印象像一本安静的杂志内页——有信息，有留白，也有温度。
+      </p>
+
+      <p>
+        后来慢慢发现，<a href="https://beta-rayesports.com">雷竞技</a> 并不刻意渲染那种「必须马上了解」的紧张感。它更像一个长期经营的资料型平台，把游戏相关的赛事、数据、动态梳理得比较细致。我尤其喜欢它首页那种不慌不忙的节奏：每个模块都留了足够的呼吸空间，色彩偏沉稳，字体选得也舒服，切换页面时几乎没有多余的跳转闪烁。对于一个经常在多个标签页之间切换的人来说，这种稳定性意味着信任感的积累。
+      </p>
+
+      <!-- 引用块 增加杂志质感 -->
+      <div class="inset-quote">
+        <p>“网站的可信往往来自细节：说明是否清晰、链接是否有效、更新是否有迹可循。雷竞技在这几方面做得相当实在。”</p>
+        <span class="attribution">—— 一位长期关注竞技内容的用户</span>
+      </div>
+
+      <p>
+        第三点想说的是内容的组织方式。很多同类站点喜欢把最抓眼球的数据放在最前面，甚至牺牲可读性来换取点击。<a href="https://beta-rayesports.com">雷竞技</a> 则选择了相对克制的路线：每个版块都有简短的前言，术语旁边偶尔加入小注，页面底部甚至能看到一段关于信息来源的说明。这种透明度在如今的网络环境中并不多见。可能正是这种「愿意把来龙去脉说清楚」的态度，让整个站点的可信度有了踏实的基础。
+      </p>
+    </div>
+
+    <!-- 提示框 (FAQ 摘要感) -->
+    <div class="note-box">
+      <strong>▎简短的 FAQ 摘要</strong>
+      <p><strong>Q：雷竞技主要提供什么？</strong><br>主要是围绕竞技类游戏的数据、赛事进程与背景资料整理，站点结构清晰，适合日常查阅。</p>
+      <p><strong>Q：信息可靠吗？</strong><br>从页面更新频率和引用标注来看，团队有持续维护，且多处提供说明来源，风格偏向稳健务实。</p>
+      <p><strong>Q：适合什么人群？</strong><br>适合对竞技内容感兴趣、同时希望浏览环境清爽的普通玩家或资讯收集者。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+      <p>如果你也欣赏这种不喧哗的资讯方式，</p>
+      <div class="link-sentence">
+        <a href="https://beta-rayesports.com">雷竞技</a> 或许刚好符合你的浏览习惯。
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #8b7f72;">
+        · 杂志专题 · 使用米白背景 · 内容基于真实体验 ·
+      </p>
+    </div>
+  </div>
+</body>
+</html>
