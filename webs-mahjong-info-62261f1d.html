@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>麻将胡了 · 简明指南与访问提醒</title>
+  <style>
+    /* reset & base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f3f9fc;
+      color: #1b2d3a;
+      line-height: 1.7;
+      padding: 1.25rem;
+    }
+
+    /* 网格卡片容器 */
+    .page-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+
+    /* 卡片模块 */
+    .card {
+      background: #ffffff;
+      border-radius: 1.2rem;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 4px 12px rgba(0, 70, 60, 0.06), 0 1px 3px rgba(17, 97, 85, 0.04);
+      transition: box-shadow 0.18s ease;
+      border: 1px solid #d9edf1;
+    }
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 90, 80, 0.08);
+    }
+
+    /* 标题系列 */
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f3c3a;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 540;
+      color: #1c5f59;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid #3daba0;
+      padding-left: 0.8rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 520;
+      color: #216a62;
+      margin-bottom: 0.4rem;
+    }
+
+    /* 导语 / 正文 */
+    .lead {
+      font-size: 1.1rem;
+      color: #1c4a45;
+      margin-bottom: 1.1rem;
+      font-weight: 400;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #2a4040;
+    }
+    .paragraph-sm {
+      margin-bottom: 0.75rem;
+    }
+
+    /* 引用提示块 */
+    .quote-tip {
+      background: #e3f4f2;
+      border-left: 4px solid #2f958b;
+      padding: 1rem 1.2rem;
+      border-radius: 0.8rem;
+      margin: 1.2rem 0;
+      font-size: 0.95rem;
+      color: #12423d;
+    }
+    .quote-tip::before {
+      content: "💡 提示 ";
+      font-weight: 540;
+      color: #0f6b61;
+    }
+
+    /* 访问句（小卡片） */
+    .visit-line {
+      background: #d9f0ed;
+      padding: 0.9rem 1.2rem;
+      border-radius: 2rem;
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 480;
+      color: #0b4942;
+      margin-top: 0.5rem;
+      border: 1px solid #8bcbc3;
+    }
+
+    /* 网格子布局（特征两列） */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+    .feature-item {
+      background: #eef8f6;
+      padding: 0.8rem 0.9rem;
+      border-radius: 0.9rem;
+      font-size: 0.95rem;
+      color: #1b554e;
+    }
+    .feature-item strong {
+      color: #16685e;
+    }
+
+    /* 场景列表 */
+    .scene-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .scene-list li {
+      position: relative;
+      padding: 0.3rem 0 0.3rem 1.6rem;
+      margin-bottom: 0.3rem;
+      color: #1f4a46;
+    }
+    .scene-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2c9287;
+      font-weight: 600;
+    }
+
+    /* FAQ 摘要 */
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+    .faq-q {
+      font-weight: 550;
+      color: #14554d;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .faq-a {
+      padding-left: 0.6rem;
+      border-left: 2px solid #a2cdc5;
+      color: #2a4845;
+    }
+
+    /* a 标签风格 */
+    a {
+      color: #146b60;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      text-decoration-color: #62b5ab;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    a:hover {
+      color: #0b4e46;
+      text-decoration-color: #0b4e46;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 500px) {
+      body { padding: 0.9rem; }
+      .card { padding: 1.4rem 1.2rem; }
+      h1 { font-size: 1.8rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .visit-line { font-size: 0.95rem; padding: 0.7rem 1rem; }
+    }
+
+    /* 页脚微空间 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6d918b;
+      margin-top: 0.6rem;
+      padding-top: 0.3rem;
+      border-top: 1px solid #c7dfda;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero 区：文章标题 + 导语 -->
+  <div class="card">
+    <h1>麻将胡了 · 简明指南</h1>
+    <p class="lead">从规则框架到访问节奏，一篇帮你厘清脉络的知识型笔记。适用于对「麻将胡了」感兴趣、希望快速建立使用常识的读者。</p>
+    <p>很多朋友第一次接触「麻将胡了」时，容易因为信息杂糅而感到困惑。本文不做夸大宣传，只从实际体验和访问习惯出发，梳理几个最值得关注的方向。</p>
+  </div>
+
+  <!-- 多段正文 1 —— 从结构到玩法 -->
+  <div class="card">
+    <h2>▎从结构到玩法 · 一种清晰的参与方式</h2>
+    <p>「麻将胡了」的核心逻辑围绕经典麻将规则展开，但针对线上场景做了专门优化。你不需要背诵复杂番型表，也不必担心被冗余信息干扰。</p>
+    <p>对于多数用户而言，熟悉基本牌型组合与胡牌条件即可顺畅参与。值得一提的是，平台在交互层面保持了较低的认知负荷——每局流程都有明确的视觉引导。</p>
+
+    <!-- 引用提示 -->
+    <div class="quote-tip">
+      初次访问时，建议先浏览「简明规则」区域，那里用卡片式说明代替了长篇文档，阅读成本大幅降低。
+    </div>
+
+    <p>如果你已经具备麻将基础，那么「麻将胡了」的节奏会让你感到熟悉。不同房间的场次设置保留了传统麻将的策略感，但也融入了更轻量的计分方式。</p>
+  </div>
+
+  <!-- 特点 + 场景 混合卡片 -->
+  <div class="card">
+    <h2>▎几个值得留意的特点</h2>
+    <div class="feature-grid">
+      <div class="feature-item"><strong>规则透明</strong> · 胡牌条件、番数计算均有清晰公示</div>
+      <div class="feature-item"><strong>场景自适应</strong> · 移动端与桌面端布局独立优化</div>
+      <div class="feature-item"><strong>节奏可调</strong> · 支持快速局与标准局两种模式</div>
+      <div class="feature-item"><strong>辅助提示</strong> · 可开启出牌建议（仅作参考）</div>
+    </div>
+
+    <h3 style="margin-top: 1.4rem;">常见场景举例</h3>
+    <ul class="scene-list">
+      <li>午休间隙 · 打一局标准场，放松注意力</li>
+      <li>朋友线上聚会 · 创建私人房间，边聊边玩</li>
+      <li>新手练习 · 使用低倍场熟悉牌型与防守思路</li>
+      <li>规则研习 · 通过回放功能复盘关键手牌</li>
+    </ul>
+  </div>
+
+  <!-- 引用提示 2 + 访问句 -->
+  <div class="card">
+    <h2>▎访问提醒 · 保持理性与节奏</h2>
+    <div class="quote-tip">
+      所有游戏都值得被当作休闲陪伴，而非消耗性任务。设置单次时长提醒、避免连续多局，是更健康的参与方式。
+    </div>
+    <p>无论你是为了钻研牌技，还是单纯享受麻将的社交乐趣，都建议先确定自己的节奏。「麻将胡了」提供了清晰的统计面板，你可以随时查看自己的对局时长与胜负分布，这些数据有助于自我调节。</p>
+
+    <!-- 访问句，自然嵌入 a 标签 (文本严格等于「麻将胡了」) -->
+    <p style="margin-bottom: 0.6rem;">若想直接了解当前版本与活动信息，可前往 <a href="https://webs-mahjong.com">麻将胡了</a> 浏览最新内容。页面结构简洁，首页即可看到规则概述与场次入口。</p>
+
+    <div class="visit-line">📌 建议收藏网址，避免通过非官方渠道跳转</div>
+  </div>
+
+  <!-- FAQ 摘要卡片（不是完整FAQ，是摘要风格） -->
+  <div class="card">
+    <h2>▎FAQ 摘要 · 三个常见疑问</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q：是否需要注册才能体验？</span>
+      <div class="faq-a">大部分内容无需注册即可浏览，但参与对局需要创建账号（基础信息+昵称）。注册流程约1分钟。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：移动端体验与桌面端有区别吗？</span>
+      <div class="faq-a">核心功能完全一致，移动端针对触控做了放大区域与手势优化。推荐使用现代浏览器访问。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：「麻将胡了」与普通麻将平台有何不同？</span>
+      <div class="faq-a">主要区别在于信息呈现方式：规则说明更偏向图解与短句，减少阅读负担。同时提供多种时长预设，尊重不同用户习惯。</div>
+    </div>
+    <p style="font-size: 0.9rem; border-top: 1px dashed #bbe0da; padding-top: 0.7rem; margin-top: 0.2rem;">以上摘要基于公开资料与常见用户反馈整理，供参考。</p>
+  </div>
+
+  <!-- 结尾：一句收束 + 微提示 -->
+  <div class="footer-note">
+    保持好奇，保持适度 · 每次摸牌都是一次新的思考
+  </div>
+</div>
+</body>
+</html>
