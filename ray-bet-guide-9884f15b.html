@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷竞技 · 赛事与竞技平台说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce6b4 0%, #f7d9a5 30%, #f3c988 70%, #efb96a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 30px 20px;
+            line-height: 1.6;
+            color: #2b2b2b;
+        }
+        .wrap {
+            max-width: 1000px;
+            width: 100%;
+        }
+        /* hero 区 */
+        .hero {
+            background: rgba(255, 248, 235, 0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 32px 32px;
+            padding: 50px 40px 45px;
+            text-align: center;
+            box-shadow: 0 16px 40px -12px rgba(160, 100, 30, 0.35);
+            margin-bottom: 32px;
+            border: 1px solid rgba(255, 221, 170, 0.7);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #4d2e0b;
+            margin-bottom: 10px;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6b4a1f;
+            background: rgba(240, 200, 140, 0.3);
+            display: inline-block;
+            padding: 6px 24px;
+            border-radius: 60px;
+            margin-top: 6px;
+            backdrop-filter: blur(4px);
+        }
+        .hero p {
+            max-width: 700px;
+            margin: 22px auto 0;
+            font-size: 1.08rem;
+            color: #3e2c12;
+        }
+        .hero a {
+            display: inline-block;
+            margin-top: 28px;
+            background: #d48f3c;
+            color: #fff9ef;
+            padding: 14px 40px;
+            border-radius: 60px;
+            font-weight: 550;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 6px 0 #a96e2a, 0 8px 16px rgba(140, 80, 10, 0.25);
+            transition: all 0.15s ease;
+            letter-spacing: 2px;
+        }
+        .hero a:hover {
+            background: #c4802f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #9a6424, 0 12px 20px rgba(120, 65, 5, 0.3);
+        }
+        .hero a:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #9a6424;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: rgba(255, 248, 235, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 32px;
+            padding: 38px 36px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 28px -6px rgba(140, 80, 20, 0.2);
+            border: 1px solid rgba(255, 215, 160, 0.6);
+        }
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #4d2e0b;
+            border-left: 8px solid #d48f3c;
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #5d3b14;
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 30px;
+            margin-top: 16px;
+        }
+        .grid-2 .item {
+            background: rgba(255, 235, 200, 0.5);
+            padding: 18px 20px;
+            border-radius: 24px;
+            transition: 0.1s ease;
+        }
+        .grid-2 .item strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #3e2c12;
+            margin-bottom: 6px;
+        }
+        .grid-2 .item span {
+            color: #4f3a1b;
+            font-size: 0.95rem;
+        }
+
+        /* 说明区 + faq */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 20px;
+        }
+        .faq-item {
+            background: rgba(250, 235, 205, 0.5);
+            padding: 18px 20px;
+            border-radius: 24px;
+        }
+        .faq-item .q {
+            font-weight: 550;
+            color: #4d2e0b;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .faq-item .q::before {
+            content: "▸";
+            color: #d48f3c;
+            font-weight: 600;
+        }
+        .faq-item .a {
+            color: #4f3a1b;
+            font-size: 0.95rem;
+            padding-left: 18px;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 20px;
+            text-align: center;
+            padding: 28px 20px;
+            background: rgba(255, 240, 215, 0.6);
+            border-radius: 60px;
+            backdrop-filter: blur(3px);
+            border: 1px solid rgba(200, 160, 100, 0.3);
+        }
+        .footer-links p {
+            color: #4d3413;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #7b4f1d;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: 0.1s;
+        }
+        .footer-links a:hover {
+            border-bottom-color: #b47a3a;
+            color: #4d2e0b;
+        }
+        .inline-link {
+            color: #7b4f1d;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #b98a4b;
+            transition: 0.1s;
+        }
+        .inline-link:hover {
+            border-bottom-style: solid;
+            color: #4d2e0b;
+        }
+
+        @media (max-width: 680px) {
+            .hero { padding: 36px 24px; }
+            .hero h1 { font-size: 2.1rem; }
+            .grid-2, .faq-grid { grid-template-columns: 1fr; }
+            .card { padding: 28px 20px; }
+            .hero a { padding: 12px 32px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <!-- hero -->
+    <div class="hero">
+        <h1>雷竞技</h1>
+        <div class="sub">竞技 · 赛事 · 动态</div>
+        <p>
+            一个集中呈现赛事信息、竞技项目介绍与内容更新的站点。无论你是在寻找赛事动态、了解竞技规则，还是想快速定位感兴趣的项目，<a href="https://ray-bet-sports.com" class="inline-link">雷竞技</a>都能提供清晰、有组织的参考信息。
+        </p>
+        <a href="https://ray-bet-sports.com">雷竞技</a>
+    </div>
+
+    <!-- 优势区：竞技内容特点 -->
+    <div class="card">
+        <h2>内容特点</h2>
+        <div class="grid-2">
+            <div class="item">
+                <strong>项目覆盖面广</strong>
+                <span>从主流赛事到新兴竞技项目，分类清晰，方便用户根据兴趣快速定位。</span>
+            </div>
+            <div class="item">
+                <strong>信息结构直观</strong>
+                <span>页面以卡片、分区、摘要等形式组织内容，减少信息噪音，提升浏览效率。</span>
+            </div>
+            <div class="item">
+                <strong>持续更新</strong>
+                <span>站点内容定期整理，涉及规则变动、赛程调整等动态都会及时反映。</span>
+            </div>
+            <div class="item">
+                <strong>无冗余引导</strong>
+                <span>不设置诱导跳转或夸张宣传，每个页面都以提供实质信息为目标。</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：网站用途 + 场景 -->
+    <div class="card">
+        <h2>适合哪些场景</h2>
+        <p style="margin-bottom: 18px; color: #3e2c12;">
+            如果你正在寻找一个能快速理解竞技项目背景、查看赛事基本信息的参考页面，那么<a href="https://ray-bet-sports.com" class="inline-link">雷竞技</a>的内容结构会是不错的选择。以下是一些典型使用场景：
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+            <span style="background: rgba(215, 170, 100, 0.25); padding: 8px 20px; border-radius: 60px; font-size: 0.95rem;">✦ 想了解不同赛事基本设置</span>
+            <span style="background: rgba(215, 170, 100, 0.25); padding: 8px 20px; border-radius: 60px; font-size: 0.95rem;">✦ 对比各项目规则特点</span>
+            <span style="background: rgba(215, 170, 100, 0.25); padding: 8px 20px; border-radius: 60px; font-size: 0.95rem;">✦ 查阅竞技术语与常见问题</span>
+            <span style="background: rgba(215, 170, 100, 0.25); padding: 8px 20px; border-radius: 60px; font-size: 0.95rem;">✦ 快速定位感兴趣的竞技分类</span>
+        </div>
+        <h3 style="margin-top: 30px;">页面结构说明</h3>
+        <p style="color: #4f3a1b;">
+            每个分类页面都包含项目简介、关键规则、常见问题摘要以及相关链接。内容以平实语言撰写，不堆砌术语，适合不同熟悉程度的用户浏览。站点本身不收集用户信息，也不提供任何形式的即时交易或跳转。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2>常见问题 · 摘要</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="q">我能在上面找到所有赛事信息吗？</div>
+                <div class="a">平台收录了多个主流及区域性竞技项目，但不可能覆盖全部。建议结合具体需求查看对应分类。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">页面信息多久更新一次？</div>
+                <div class="a">重要规则、赛程变更会尽快同步，常规内容按月复核。不提供实时比分或直播。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">是否需要注册才能浏览？</div>
+                <div class="a">不需要。所有介绍性内容均公开可见，无需登录或提供个人信息。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">链接为什么只有「雷竞技」三个字？</div>
+                <div class="a">这是站点的核心名称，链接即指向站点本身。页面中的其他引用也保持简洁一致。</div>
+            </div>
+        </div>
+        <p style="margin-top: 28px; font-size: 0.95rem; color: #5d3b14; border-top: 1px solid rgba(200, 160, 100, 0.4); padding-top: 20px;">
+            更多问题可以直接浏览对应分类页面的 FAQ 专区，或在站点内使用关键词搜索（如果提供）。
+        </p>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <p>主要入口：<a href="https://ray-bet-sports.com">雷竞技</a> · 内容索引与项目说明</p>
+        <p style="font-size: 0.9rem; color: #6b4a1f; opacity: 0.8;">本页为介绍性落地页，不涉及任何商业推广或诱导行为。</p>
+    </div>
+</div>
+</body>
+</html>
